@@ -1,0 +1,115 @@
+--------------- ALUR PEMBUATAN CONTACT MANAGEMENT API -------------------
+
+1. Buat api spesification menggunakan openapi
+2. Buat model, migration, dan seed untuk setiap model. dengan masing-masing perintah php artisan make:model namamodel --migration --seed
+
+3. Buat API untuk registrasi USER
+    A. Buat request terlebih dahulu dengan perintah php artisan make:request UserRegisterRequest
+    B. Buat resource untuk responsenya dengan perintah php artisan make:resource UserResource
+    C. Edit untuk UserRegisterRequest
+    D. Edit untuk UserResource
+    E. Buat controller nya dengan menggunakan perintah php artisan make:controller UserController
+    F. Edit Controller nya
+    G. Edit bagian UserRegisterRequest lagi untuk membuat custom error validation
+    H. Mulai buat untuk API nya yaitu dengan install api dengan perintah php artisan install:api
+    I. Buka file api tersebut, lalu edit.
+    J. Lakukan unit test terhadap API tersebut, dengan langkah pertama yaitu install php artisan make:test UserTest
+    K. Pada file UserTest tersebut edit bagian file TestCase
+
+4. Buat API untuk login USER
+    A. Buat request terlebih dahulu dengan perintah php artisan make:request UserLoginRequest lalu edit file tersebut
+    B. Edit lagi bagian UserResource dengan menambahkan token
+    C. Edit User Controller bagian login
+    D. Tambahkan seeder di UserSeeder
+    E. Edit api route nya lagi
+    F. Tambahkan UserTest lagi bagian login
+
+5. Buat API untuk get current User
+    A. Buat middleware untuk mengambil user token pada setiap api yang membutuhkan authorization. gunakan perintah php artisan make:middleware ApiAuthMiddleware
+    B. Edit ApiAuthMiddleware tersebut. ditengah pembuatan, ubah juga pada bagian UserModel dengan menambahkan implements Authenticable
+    C. Edit UserModel tersebut dengan menambahkan function-function yang dibutuhkan ketika implementasi authenticable
+    D. Edit user controller
+    D. Buat api route untuk middleware
+    E. Edit UserSeeder dengan menambahkan token
+    F. Tambahkan UserTest lagi bagian get
+
+6. Buat API untuk update current user
+    A. Buat request terlebih dahulu dengan perintah php artisan make:request UserUpdateRequest lalu edit file tersebut
+    B. Edit User Controller pada bagian function update
+    C. Tambahkan api route untuk update ini di file api
+    D. Tambahkan UserTest lagi bagian update
+
+7. Buat API untuk logout user
+    A. Edit User Controller pada bagian function logout
+    B. Tambahkan api route untuk logout ini di file api
+    C. Tambahkan UserTest lagi bagian logout
+
+
+------------------
+
+8. Buat API untuk create CONTACT
+    A. Buat request terlebih dahulu dengan perintah php artisan make:request ContactCreateRequest
+    B. Buat resource untuk responsenya dengan perintah php artisan make:resource ContactResource
+    C. Buat untuk ContactResource nya
+    D. Buat untuk ContactCreateRequest nya
+    E. Buat controller dengan perintah php artisan make:controller ContactController, lalu edit file tersebut
+    F. Daftarkan ke API route
+    G. Buat unit test untuk Contact dengan perintah php artisan make:test ContactTest
+
+9. Buat API untuk get contact by id
+    A. Buka ContactController, lalu tambahkan function untuk get contact by id
+    B. Daftarkan ke API route
+    C. Edit file ContactSeeder
+    D. Implementasikan unit test nya
+
+10. Buat API untuk update contact by id
+    A. Buat request terlebih dahulu dengan perintah php artisan make:request ContactUpdateRequest, lalu edit
+    B. Buka ContactController, lalu tambahkan function untuk update contact by id
+    C. Daftarkan ke API route
+    D. Implementasikan unit test nya
+
+11. Buat API untuk remove contact by id
+    A. Buka ContactController, lalu tambahkan function untuk remove contact by id
+    B. Daftarkan ke API route
+    C. Implementasikan unit test nya
+
+12. Buat API untuk search contact
+    A. Buat resource collection dengan menggunakan perintah php artisan make:resource ContactCollection --collection
+    B. Edit bagian ContactCollection
+    C. Buka ContactController, lalu tambahkan function untuk search contact
+    D. Daftarkan ke API route
+    E. Buat seeder baru dengan perintah php artisan make:seed SearchSeeder, lalu edit
+    F. Implementasikan unit test nya
+
+----------------------
+
+13. Buat API untuk create address
+    A. Buat request terlebih dahulu dengan perintah php artisan make:request AddressCreateRequest
+    B. Buat resource untuk responsenya dengan perintah php artisan make:resource AddressResource
+    C. Edit untuk file AddressResource
+    D. Edit untuk file AddressCreateRequest
+    E. Buat controller dengan perintah php artisan make:controller AddressController, lalu edit file tersebut
+    F. Daftarkan ke API route
+    G. Buat unit test dengan perintah php artisan make:test AddressTest. Lalu implementasikan unit test untuk create address ini
+
+14. Buat API untuk get Address
+    A. Buka AddressController, lalu tambahkan function untuk get address
+    B. Daftarkan ke API route
+    C. Buat untuk AddressSeeder nya
+    D. Implementasikan unit test nya
+
+15. Buat API untuk update Address
+    A. Buat request terlebih dahulu dengan perintah php artisan make:request AddressUpdateRequest, lalu edit
+    B. Buka AddressController, lalu tambahkan function untuk update address
+    C. Daftarkan ke API route
+    D. Implementasikan unit test nya
+
+16. Buat API untuk delete Address
+    A. Buka AddressController, lalu tambahkan function untuk delete address
+    B. Daftarkan ke API route
+    C. Implementasikan unit test nya
+
+17. Buat API untuk get lists address
+    A. Buka AddressController, lalu tambahkan function untuk get lists address
+    B. Daftarkan ke API route
+    C. Implementasikan unit test nya
